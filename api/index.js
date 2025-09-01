@@ -6,10 +6,14 @@ import env from 'dotenv';
 env.config();
 
 const app = express()
-const PORT = process.env.PORT || 1502;
 app.use(express.static('public'));
+
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "../views"));
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
 
 
 app.get('/', (req, res) => {
