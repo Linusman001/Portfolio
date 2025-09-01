@@ -1,0 +1,47 @@
+import express from 'express';
+import path from "path";
+import { fileURLToPath } from "url";
+import env from 'dotenv';
+
+env.config();
+
+const app = express()
+const PORT = process.env.PORT
+
+app.use(express.static('public'));
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+
+app.get('/', (req, res) => {
+    res.render('index.ejs');
+})
+
+app.get("/resume", (req, res) => {
+    res.render('resume.ejs');
+})
+
+app.get("/download-resume-pdf", (req, res) => {
+  const filePath = path.join(__dirname, "uploads", "Chidera_Linus_CV.pdf");
+  res.download(filePath, "Linus_Chidera_Resume.pdf", (err) => {
+    if (err) {
+      console.error("Error downloading file:", err);
+      res.status(500).send("Could not download the file.");
+    }
+  });
+});
+
+app.get("/download-resume-word", (req, res) => {
+  const filePath = path.join(__dirname, "uploads", "Chidera_Linus_CV.docx")
+  res.download(filePath, "Linus_Chidera_Resume.docx", (err) => {
+    if (err) {
+      console.error("Error downloading file:", err);
+      res.status(500).send("Could not download the file.");
+    }
+  });
+});
+
+
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+})

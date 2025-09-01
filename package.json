@@ -1,0 +1,20 @@
+{
+  "name": "linusman",
+  "version": "1.0.0",
+  "description": "A portfolio for Linus Chidera under brand name linusmann",
+  "license": "ISC",
+  "author": "Linus Chidera (Linusman)",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.0",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "multer": "^2.0.1",
+    "nodemon": "^3.1.10",
+    "pg": "^8.16.3"
+  }
+}
