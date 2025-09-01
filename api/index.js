@@ -3,19 +3,17 @@ import path from "path";
 import { fileURLToPath } from "url";
 import env from 'dotenv';
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 env.config();
 
 const app = express()
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+
 app.use(express.static('public'));
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "../views"));
-
-
-
-
 
 app.get('/', (req, res) => {
     res.render('index.ejs');
