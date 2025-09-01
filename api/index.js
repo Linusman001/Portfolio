@@ -1,25 +1,27 @@
-import express from 'express';
+import express from "express";
 import path from "path";
 import { fileURLToPath } from "url";
-import env from 'dotenv';
+import { VercelRequest, VercelResponse } from "@vercel/node";
+import serverless from "serverless-http"; // wrap Express
+import env from "dotenv";
+
+env.config();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-env.config();
-
 const app = express()
 
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, "../public")));
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "../views"));
 
-app.get('api/', (req, res) => {
+app.get('/', (req, res) => {
     res.render('index.ejs');
 })
 
-app.get("api/resume", (req, res) => {
+app.get("/resume", (req, res) => {
     res.render('resume.ejs');
 })
 
