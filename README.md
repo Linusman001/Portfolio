@@ -1,5 +1,3 @@
----
-
 # 🌐 Linus Chidera – Portfolio
 
 Hi, I’m **Linus Chidera** — a full-stack web developer building fast, scalable, and user-focused solutions. Through my brand **Linusman**, I design and develop everything from polished front-ends to efficient back-end systems. Whether you're launching a product or improving an existing one, I bring both structure and creativity to the table.
