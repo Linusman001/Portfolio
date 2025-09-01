@@ -15,15 +15,15 @@ app.use(express.static('public'));
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "../views"));
 
-app.get('/', (req, res) => {
+app.get('api/', (req, res) => {
     res.render('index.ejs');
 })
 
-app.get("/resume", (req, res) => {
+app.get("api/resume", (req, res) => {
     res.render('resume.ejs');
 })
 
-app.get("/download-resume-pdf", (req, res) => {
+app.get("api/download-resume-pdf", (req, res) => {
   const filePath = path.join(__dirname, "uploads", "Chidera_Linus_CV.pdf");
   res.download(filePath, "Linus_Chidera_Resume.pdf", (err) => {
     if (err) {
@@ -33,7 +33,7 @@ app.get("/download-resume-pdf", (req, res) => {
   });
 });
 
-app.get("/download-resume-word", (req, res) => {
+app.get("api/download-resume-word", (req, res) => {
   const filePath = path.join(__dirname, "uploads", "Chidera_Linus_CV.docx")
   res.download(filePath, "Linus_Chidera_Resume.docx", (err) => {
     if (err) {
