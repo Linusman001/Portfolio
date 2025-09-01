@@ -2,7 +2,6 @@ import express from "express";
 import path from "path";
 import { fileURLToPath } from "url";
 import { VercelRequest, VercelResponse } from "@vercel/node";
-import serverless from "serverless-http"; // wrap Express
 import env from "dotenv";
 
 env.config();
